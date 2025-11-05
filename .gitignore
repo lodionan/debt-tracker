@@ -1,0 +1,119 @@
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### IntelliJ IDEA ###
+.idea/modules.xml
+.idea/jarRepositories.xml
+.idea/compiler.xml
+.idea/libraries/
+*.iws
+*.iml
+*.ipr
+
+### Eclipse ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+### Mac OS ###
+.DS_Store
+
+### Windows ###
+Thumbs.db
+
+### Environment variables and secrets ###
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+### Database files ###
+*.db
+*.sqlite
+*.sqlite3
+
+### Temporary files ###
+*.tmp
+*.temp
+*.swp
+*.swo
+
+### Logs ###
+logs/
+*.log
+
+### Node modules (for frontend) ###
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+### React build ###
+frontend/build/
+DebtTrackerMobile/android/app/build/
+DebtTrackerMobile/ios/build/
+
+### Gradle wrapper ###
+.gradle/
+gradle-app.setting
+!gradle-wrapper.jar
+!gradle-wrapper.properties
+
+### Heroku ###
+.heroku/
+
+### Local development databases ###
+*.h2.db
+*.mv.db
+
+### Application secrets and keys (NEVER COMMIT THESE) ###
+src/main/resources/application-local.properties
+src/main/resources/application-dev.properties
+src/main/resources/application-prod.properties
+
+# Payment gateway secrets
+stripe_secret_key
+clip_api_key
+clip_api_secret
+clip_merchant_id
+
+# JWT secrets
+jwt_secret_key
+
+# Database credentials
+db_username
+db_password
+database_url
+
+# Email configuration
+email_username
+email_password
+smtp_password
+
+# API keys directory
+api_keys/
+
+# Local development overrides
+application-local.yml
+application-dev.yml
+application-prod.yml
