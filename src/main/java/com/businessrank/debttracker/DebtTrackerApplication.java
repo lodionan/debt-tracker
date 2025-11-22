@@ -11,5 +11,4 @@ public class DebtTrackerApplication {
     public static void main(String[] args) {
         SpringApplication.run(DebtTrackerApplication.class, args);
     }
-
 }
