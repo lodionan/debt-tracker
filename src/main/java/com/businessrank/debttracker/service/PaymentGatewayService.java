@@ -20,9 +20,6 @@ public class PaymentGatewayService {
     @Value("${clip.api.secret}")
     private String clipApiSecret;
 
-    @Value("${clip.merchant.id}")
-    private String clipMerchantId;
-
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper objectMapper = new ObjectMapper();
 
@@ -30,12 +27,9 @@ public class PaymentGatewayService {
         String url = "https://api.payclip.com/oauth/token";
 
         HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
+        headers.setBasicAuth(clipApiKey, clipApiSecret);
 
-        String body = String.format(
-            "grant_type=client_credentials&client_id=%s&client_secret=%s",
-            clipApiKey, clipApiSecret
-        );
+        String body = "grant_type=client_credentials";
 
         HttpEntity<String> entity = new HttpEntity<>(body, headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);
@@ -60,7 +54,6 @@ public class PaymentGatewayService {
         requestBody.put("amount", amount.multiply(BigDecimal.valueOf(100)).longValue()); // Convert to cents
         requestBody.put("currency", "MXN");
         requestBody.put("description", description);
-        requestBody.put("merchant_id", clipMerchantId);
 
         HttpEntity<Map<String, Object>> entity = new HttpEntity<>(requestBody, headers);
         ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.POST, entity, String.class);

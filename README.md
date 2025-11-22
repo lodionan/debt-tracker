@@ -1,4 +1,4 @@
-# Debt Tracker - Sistema de Registro de Deudas
+# Miry - Sistema de Registro de Deudas
 
 Aplicación completa para gestión de deudas en negocio de joyería con versiones web y móvil.
 

@@ -15,7 +15,7 @@ public class Payment {
     private Long id;
 
     @NotNull(message = "Debt is required")
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "debt_id")
     private Debt debt;
 

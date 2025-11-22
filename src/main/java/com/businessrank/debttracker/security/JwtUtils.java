@@ -34,12 +34,20 @@ public class JwtUtils {
     }
 
     public String getUserNameFromJwtToken(String token) {
-        return Jwts.parserBuilder()
+        Claims claims = Jwts.parserBuilder()
                 .setSigningKey(getSigningKey())
                 .build()
                 .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
+                .getBody();
+
+        // Debug log for JWT claims
+        System.out.println("JWT Token Claims Debug:");
+        System.out.println("  Subject (username): " + claims.getSubject());
+        System.out.println("  Issued At: " + claims.getIssuedAt());
+        System.out.println("  Expiration: " + claims.getExpiration());
+        System.out.println("  All claims: " + claims);
+
+        return claims.getSubject();
     }
 
     public boolean validateJwtToken(String authToken) {

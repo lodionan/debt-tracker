@@ -1,4 +1,4 @@
--- Debt Tracker Database Schema
+-- Miry Database Schema
 -- Generated from JPA entities for MySQL
 
 -- Users table
@@ -32,6 +32,8 @@ CREATE TABLE debts (
     remaining_amount DECIMAL(10,2) NOT NULL,
     status ENUM('ACTIVE', 'SETTLED') NOT NULL DEFAULT 'ACTIVE',
     description TEXT,
+    due_date DATE,
+    archived BOOLEAN NOT NULL DEFAULT FALSE,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (client_id) REFERENCES clients(id)

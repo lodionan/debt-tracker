@@ -36,7 +36,6 @@ public class AuthService {
     }
 
     public User findByPhone(String phone) {
-        return userRepository.findByPhone(phone)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+        return userRepository.findByPhone(phone).orElse(null);
     }
 }

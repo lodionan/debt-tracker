@@ -10,7 +10,7 @@
   <groupId>com.business-rank</groupId>
   <artifactId>debt-tracker</artifactId>
   <version>1.0-SNAPSHOT</version>
-  <name>Debt Tracker API</name>
+  <name>Miry API</name>
   <description>API for jewelry debt tracking application</description>
   <properties>
     <java.version>17</java.version>
@@ -40,6 +40,11 @@
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>8.0.33</version>
+    </dependency>
+    <dependency>
+      <groupId>com.h2database</groupId>
+      <artifactId>h2</artifactId>
+      <scope>runtime</scope>
     </dependency>
 
     <!-- JWT -->

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 @Entity
@@ -34,6 +35,10 @@ public class Debt {
 
     private String description;
 
+    private LocalDate dueDate;
+
+    private boolean archived = false;
+
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
@@ -46,11 +51,16 @@ public class Debt {
     public Debt() {}
 
     public Debt(Client client, BigDecimal totalAmount, String description) {
+        this(client, totalAmount, description, null);
+    }
+
+    public Debt(Client client, BigDecimal totalAmount, String description, LocalDate dueDate) {
         this.client = client;
         this.totalAmount = totalAmount;
         this.remainingAmount = totalAmount;
         this.status = Status.ACTIVE;
         this.description = description;
+        this.dueDate = dueDate;
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();
     }
@@ -89,6 +99,12 @@ public class Debt {
 
     public String getDescription() { return description; }
     public void setDescription(String description) { this.description = description; }
+
+    public LocalDate getDueDate() { return dueDate; }
+    public void setDueDate(LocalDate dueDate) { this.dueDate = dueDate; }
+
+    public boolean isArchived() { return archived; }
+    public void setArchived(boolean archived) { this.archived = archived; }
 
     public LocalDateTime getCreatedAt() { return createdAt; }
     public void setCreatedAt(LocalDateTime createdAt) { this.createdAt = createdAt; }
