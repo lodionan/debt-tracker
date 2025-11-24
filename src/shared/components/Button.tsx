@@ -1,6 +1,6 @@
 import React from 'react';
 import { TouchableOpacity, Text, StyleSheet, ViewStyle, TextStyle, ActivityIndicator, Platform } from 'react-native';
-import { theme } from '../styles/theme';
+import { theme } from 'shared/styles/theme';
 
 type VariantType = 'primary' | 'secondary' | 'outline' | 'danger';
 type SizeType = 'sm' | 'md' | 'lg';
