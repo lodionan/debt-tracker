@@ -15,7 +15,7 @@ export const apiConfig = {
   headers: {
     'Content-Type': 'application/json'
   },
-  credentials: 'same-origin' as RequestCredentials
+  credentials: 'include' as RequestCredentials
 };
 
 // Helper function to get auth headers
@@ -36,7 +36,7 @@ export const apiRequest = async (endpoint: string, options: RequestInit = {}): P
       ...getAuthHeaders(),
       ...options.headers
     },
-    credentials: 'same-origin'
+    credentials: 'include'
   };
 
   console.log(`API Request: ${options.method || 'GET'} ${url}`);
